@@ -33,3 +33,4 @@ Casq1 0.260  7.22
 > colnames(m_ex_mt) = c("WT-FPKM","KO-FPKM")
 > Heatmap(m_ex, name="FPKM", col=colorRamp2(c(0,11,131), c("blue","white","red")))
 ```
+![up-regulaiton_of_muscle_genes](https://cloud.githubusercontent.com/assets/12989168/25923358/19397de8-35ab-11e7-84e5-c6722419e634.jpg)
