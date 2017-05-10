@@ -1,0 +1,33 @@
+> library(grid)
+> library(circlize)
+
+> m_ex = read.csv("m_expression.csv", header=TRUE, sep=,)
+> head(m_ex)
+  GeneID    WT    KO
+1  Jsrp1 0.001  2.42
+2  Mylk4 0.001  2.18
+3  Myom2 0.060  2.09
+4    Mck 2.110 66.29
+5  Mylk2 0.060  1.71
+6  Casq1 0.260  7.22
+> rownames(m_ex) = m_ex$GeneID
+> head(m_ex)
+      GeneID    WT    KO
+Jsrp1  Jsrp1 0.001  2.42
+Mylk4  Mylk4 0.001  2.18
+Myom2  Myom2 0.060  2.09
+Mck      Mck 2.110 66.29
+Mylk2  Mylk2 0.060  1.71
+Casq1  Casq1 0.260  7.22
+> m_ex = subset(m_ex, select=-GeneID)
+> head(m_ex)
+         WT    KO
+Jsrp1 0.001  2.42
+Mylk4 0.001  2.18
+Myom2 0.060  2.09
+Mck   2.110 66.29
+Mylk2 0.060  1.71
+Casq1 0.260  7.22
+> m_ex = data.matrix(m_ex)
+> colnames(m_ex_mt) = c("WT-FPKM","KO-FPKM")
+> Heatmap(m_ex, name="FPKM", col=colorRamp2(c(0,11,131), c("blue","white","red")))
