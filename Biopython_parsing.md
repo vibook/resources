@@ -19,6 +19,7 @@ for seq_record in SeqIO.parse("ls_orchid.fasta", "fasta"):
 ```
 sample file : [ls_orchid.gbk](https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/ls_orchid.gbk)
 
+#### Sequence Indexing, Complement and Reverse Complement
 ```
 >>> from Bio.Seq import Seq
 >>> from Bio.Alphabet import IUPAC
@@ -45,6 +46,10 @@ AT
 2
 >>> Seq("AAAA").count("AA")
 2
+>>> my_seq.complement()
+Seq("CTAGC", IUPACUnambiguousDNA())
+>>> my_seq.reverse_complement()
+Seq("CGATC", IUPACUnambiguousDNA())
 ```
 
 #### GC contents 계산
@@ -66,5 +71,35 @@ AT
 >>> my_seq = Seq('GATCGATGGGCCTATATAGGATCGAAAATCGC', IUPAC.unambiguous_dna)
 >>> GC(my_seq)
 46.875
+```
+
+#### Sequence 객체 더하기
+```
+>>> from Bio.Seq import Seq
+>>> from Bio.Alphabet import generic_dna
+>>> my_seq1 = Seq("ACGT", generic_dna)
+>>> my_seq2 = Seq("AACC", generic_dna)
+>>> my_seq3 = my_seq1 + my_seq2
+>>> my_seq3 
+Seq('ACGTAACC', DNAAlphabet())
+
+>>> nuc_seq = Seq("GATCGATGC", generic_nucleotide)
+>>> dna_seq = Seq("ACGT", IUPAC.unambiguous_dna)
+>>> nuc_seq
+Seq("GATCGATGC", NucleotideAlphabet())
+>>> dna_seq
+Seq("ACGT", IUPACUnambiguousDNA())
+>>> nuc_seq + dna_seq
+Seq("GATCGATGCACGT", NucleotideAlphabet())
+```
+
+#### 전사와 번역
+```
+>>> coding_dna = Seq("ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG", IUPAC.unambiguous_dna)
+>>> messenger_rna = coding_dna.transcribe()
+>>> messenger_rna
+Seq('AUGGCCAUUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG', IUPACUnambiguousRNA()) 
+>>> messenger_rna.translate() 
+Seq('MAIVMGR*KGAR*', HasStopCodon(IUPACProtein(), '*'))
 ```
 출처 : [생물정보학자의 블로그](http://korbillgates.tistory.com/72)
