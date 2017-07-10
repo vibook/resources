@@ -1,3 +1,9 @@
+- [cutoff finder](http://molpath.charite.de/cutoff/)
+
+- [cutoff finder paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3522617/)
+
+- [Cutpoint determination in continous predictive variables](http://www.stata.com/meeting/spain14/abstracts/materials/es14_perez.pdf)
+
 ```
 zscore = (C2-AVERAGE($C$2:$C$325))/STDEV($C$2:$C$325)
 rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
