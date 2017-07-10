@@ -1,7 +1,7 @@
 zscore = (C2-AVERAGE($C$2:$C$325))/STDEV($C$2:$C$325)
 rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
 
-
+```
 > library(survival)
 > library(ggplot2)
 > library(survminer)
@@ -73,3 +73,4 @@ ggsurvplot(fit, pval=TRUE, legent.title="cg10262052",
  legend.labs=c("below cut-point", "above cut-point"),
  xlab="Time(days)", break.time.by=500, main="TCGA LAML hMethyl 450 - cg10262052",
  legend="right", palette=c("#00BFC4", "#F8766D"))
+```
