@@ -1,5 +1,7 @@
+```
 zscore = (C2-AVERAGE($C$2:$C$325))/STDEV($C$2:$C$325)
 rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
+```
 
 ```
 > library(survival)
@@ -11,9 +13,10 @@ rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
 > ggsurvplot(fit_median, pval=TRUE, legend="right", break.time.by=50, xlim=c(0,250))
 
 > sdf <- survdiff(Surv(TIME, EVENT)~rank_median,data=a)
-
+```
 
 cut-point
+```
 > library(grid)
 > library(mvtnorm)
 > library(modeltools)
