@@ -1,7 +1,5 @@
 - [cutoff finder](http://molpath.charite.de/cutoff/)
-
 - [cutoff finder paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3522617/)
-
 - [Cutpoint determination in continous predictive variables](http://www.stata.com/meeting/spain14/abstracts/materials/es14_perez.pdf)
 
 ```
@@ -13,6 +11,20 @@ rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
 > library(survival)
 > library(ggplot2)
 > library(survminer)
+
+> library(grid)
+> library(mvtnorm)
+> library(stats4)
+> library(modeltools)
+> library(zoo)
+> library(strucchange)
+> library(sandwich)
+> library(party)
+> library(maxstat)
+```
+
+```
+
 > a <- read.csv("Mydata.csv", header=TRUE, sep=",")
 > fit_median=survfit(Surv(TIME, EVENT)~rank_median,data=a)
 > ggsurvplot(fit_median, pval=TRUE, legend="right")
