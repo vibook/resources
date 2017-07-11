@@ -12,19 +12,6 @@ rank = IF(D2>=MEDIAN($D$2:$D$325),"High","Low")
 > library(ggplot2)
 > library(survminer)
 
-> library(grid)
-> library(mvtnorm)
-> library(stats4)
-> library(modeltools)
-> library(zoo)
-> library(strucchange)
-> library(sandwich)
-> library(party)
-> library(maxstat)
-```
-
-```
-
 > a <- read.csv("Mydata.csv", header=TRUE, sep=",")
 > fit_median=survfit(Surv(TIME, EVENT)~rank_median,data=a)
 > ggsurvplot(fit_median, pval=TRUE, legend="right")
@@ -37,13 +24,13 @@ cut-point
 ```
 > library(grid)
 > library(mvtnorm)
-> library(modeltools)
 > library(stats4)
+> library(modeltools)
 > library(zoo)
-> library(party)
-> library(sandwich)
 > library(strucchange)
-
+> library(sandwich)
+> library(party)
+> library(maxstat)
 
 > methy <- read.csv("TCGA_LAML_hMethyl450.csv", header=TRUE, sep=",")
 > stat <- maxstat.test(Surv(OS, OS_IND)~cg10262052, data=methy, smethod="LogRank", pmethod="exactGauss", abseps=0.01)
