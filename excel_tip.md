@@ -37,6 +37,8 @@
 =IF(OR(ISERROR(FIND("B",A22)), ISERROR(FIND("M",A22)), ISERROR(FIND("P",A22))),"A","B")
 ```
 
+[예제파일](https://www.dropbox.com/s/9758tg38ekjxu7c/hotdogs_manupilate_data.xlsx?dl=0)
+
 참고 사이트
 - [How to split text string in Excel by comma, space, specified characters](https://www.ablebits.com/office-addins-blog/2016/06/01/split-text-string-excel)
 - [Find The Position Of First Letter From String](https://www.extendoffice.com/documents/excel/3790-excel-find-position-of-first-letter-in-string.html)
