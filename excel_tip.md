@@ -20,7 +20,7 @@
 =MID(B2,FIND(" ",B2,FIND(" ",B2)+1),FIND(" ",B2,FIND(" ",B2,FIND(" ",B2)+1)+1)-FIND(" ",B2,FIND(" ",B2)+1))
 
 # 5. soduim 분리 (E2)
-=RIGHT(I2,LEN(B2)- FIND(" ",B2,FIND(" ",B2,FIND(" ",B2)+1)+1))
+=RIGHT(B2,LEN(B2)-FIND(" ",B2, FIND(" ",B2, FIND(" ",B2,1)+1)+1))
 
 ############################################################
 # Use "Text to Columns" menu instead of above fomula !!!!!!
