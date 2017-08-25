@@ -32,7 +32,7 @@ Mylk2 0.060  1.71
 Casq1 0.260  7.22
 > m_ex = data.matrix(m_ex)
 > colnames(m_ex_mt) = c("WT-FPKM","KO-FPKM")
-> Heatmap(m_ex, name="FPKM", col=colorRamp2(c(0,11,131), c("blue","white","red")))
+> Heatmap(m_ex, name="FPKM", cluster_rows = FALSE, col=colorRamp2(c(0,11,131), c("blue","white","red")))
 ```
 Subsetting matrix data
 ```
