@@ -1,0 +1,8 @@
+merge(cold.states, large.states, all=TRUE)
+write.csv(MyData, file = "MyData.csv")
+
+df <- read.csv("TestData.csv", header=T)
+require(ggplot2)
+ggplot(data = df, aes(x=variable, y=value)) + geom_boxplot(aes(fill=Label))
+
+https://stackoverflow.com/questions/14604439/plot-multiple-boxplot-in-one-graph
