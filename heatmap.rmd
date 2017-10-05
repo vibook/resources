@@ -41,10 +41,22 @@ a50_200 = a[a[, "UTXKO_FPKM"] > 50 & a[, "UTXKO_FPKM"] <= 200,]
 
 ![up-regulaiton_of_muscle_genes](https://cloud.githubusercontent.com/assets/12989168/25923358/19397de8-35ab-11e7-84e5-c6722419e634.jpg)
 
-#### UVM with SF3B1 mutation Analysis
+### UVM with SF3B1 mutation Analysis
+
+- Download data : http://www.tcpaportal.org/tcpa/download.html
+- Get the mutation List : http://www.cbioportal.org/index.do
+
+#### Heatmap with R
 ```
 > ht_m = Heatmap(mutation, column_title = "UVM with SF3B1 mutation", name = "UVM with SF3B1 mutation", cluster_rows = FALSE, cluster_columns = FALSE)
 > ht_nm = Heatmap(nonmutation, column_title = "UVM with none SF3B1 mutation", name = "UVM with none SF3B1 mutation", cluster_rows = FALSE, cluster_columns = FALSE)
 > ht_m + ht_nm
 ```
 https://bioconductor.org/packages/release/bioc/vignettes/ComplexHeatmap/inst/doc/s3.a_list_of_heatmaps.html
+
+#### T-Test with Excel
+```
+C15 = FTEST(C2:C7,C8:C13)
+C16 = IF(C15>0.05,1,2)
+C17 =TTEST(C2:C7,C8:C13,2,IF(C16=1,2,3))
+```
