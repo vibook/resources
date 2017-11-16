@@ -6,3 +6,16 @@ require(ggplot2)
 ggplot(data = df, aes(x=variable, y=value)) + geom_boxplot(aes(fill=Label))
 
 https://stackoverflow.com/questions/14604439/plot-multiple-boxplot-in-one-graph
+
+#### Transpose data frame and write it to file.
+엑셀에서 행렬 전환이 어려운 크기의 데이터를 r에서 변환하기
+r 에서 읽기 편하게 엑셀에서 csv 로 우선 저장
+
+- as.data.frame : 행렬 변환시 숫자와 글자에 큰따옴표가 생기는 것을 없애준다
+- col.names or row.names = FALSE : 파일에 저장할 때 필요없는 V1, V2 등을 없애준다
+- quote = FALSE : 큰따옴표를 없애준다
+```{r}
+gene = read.csv("test.csv", header = TRUE, sep = ",")
+t_gene = as.data.frame(t(gene))
+write.table(t_gene, "GeneSet.gmt", sep = "\t", col.names = FALSE, quote = FALSE)
+'''
