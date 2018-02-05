@@ -1,0 +1,23 @@
+```
+df = read.csv("GMSD6_PCJ_AllGenes.csv", header = TRUE, sep =,)
+gene_set = scan("BCR_pathway_genes.csv", what="", sep="\n")
+
+data = subset(df, GeneID == gene_set[1], select = c("ID", "GeneID", "X0h", "X2h", "X6h", "X24h"))
+
+for(i in 2: length(gene_set)) {
+  data = rbind(data, subset(df, GeneID == gene_set[i], select = c("ID", "GeneID", "X0h", "X2h", "X6h", "X24h")))
+  
+}
+
+attach(data)
+sorted_data = data[order(-X6h),]
+detach(data)
+
+write.csv(sorted_data, "GMSD_BCR_pathway_gene.csv")
+
+sorted_data = subset(sorted_data, select = - GeneID)
+rownames(sorted_data) = sorted_data$ID
+sorted_data = subset(sorted_data, select = - ID)
+
+Heatmap(hdata, name = "percentage", column_title = "GMSD6 ranking by the intron retention percentage of junctions at 6h\nwith BCR Pathway Gene Set", show_row_names = FALSE, cluster_columns = FALSE, cluster_rows = FALSE)
+```
